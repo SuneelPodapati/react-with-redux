@@ -10,7 +10,8 @@ render() {
             <img alt={product.name} src={product.imgsrc} height="200px" width="200px" />
             <h3>{product.name}</h3>
             <h5>{code == 'INR'? '₹' : '$'} {code =='INR'? product.cost: (product.cost/67).toFixed(2)}</h5>
-            <AddToCart stock={product.stock} />
+            {product.stock? <button id={product.id} onClick = {this.props.addtocart}>Add to cart</button> : <p>Out of Stock</p>}
+            {/* <AddToCart stock={product.stock} event = {this.props.addtocart} /> */}
         </div>
     );
 }
